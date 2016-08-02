@@ -4,7 +4,7 @@
 ## Installation
 
 ```sh
-$ (not yet) npm install --save node-bme280
+$ npm install --save node-bme280
 ```
 
 ## Usage
