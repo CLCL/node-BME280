@@ -28,8 +28,10 @@ BME280.prototype.begin = function(callback) {
                 sensor.readCoefficients(function(err, cal) {
                     sensor.calibration = cal;
                 
-                    sensor.wire.writeBytes(BME280.REGISTER_CONTROL, [0x3F], function(err) {
-                        callback(err);
+                    sensor.wire.writeBytes(BME280.REGISTER_CTRL_HUM, [0x01], function(err) {
+                        sensor.wire.writeBytes(BME280.REGISTER_CONTROL, [0x3F], function(err) {
+                            callback(err);
+                        });
                     });
                 });
             }
@@ -71,6 +73,7 @@ BME280.REGISTER_SOFTRESET          = 0xE0;
 
 BME280.REGISTER_CAL26              = 0xE1;  // R calibration stored in 0xE1-0xF
 
+BME280.REGISTER_CTRL_HUM           = 0xF2;
 BME280.REGISTER_CONTROL            = 0xF4;
 BME280.REGISTER_CONFIG             = 0xF5;
 BME280.REGISTER_PRESSUREDATA       = 0xF7;

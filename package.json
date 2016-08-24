@@ -1,6 +1,6 @@
 {
   "name": "node-bme280",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Node library for the Bosch Sensortec BME-280 Barometric Pressure Sensor.",
   "main": "BME280.js",
   "repository": {
